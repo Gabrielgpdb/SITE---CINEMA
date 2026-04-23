@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineEstreia - Os Maiores Clássicos em um Só Lugar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tela de carregamento -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="film-reel"></div>
+            <p>Carregando a magia do cinema...</p>
+        </div>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">Cine<span class="logo-accent">Estreia</span></span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Início</a></li>
+                    <li><a href="#estreias" class="nav-link">Em Estreia</a></li>
+                    <li><a href="#filmes" class="nav-link">Filmes</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="btn-login">Login</button>
+            <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Banner Hero -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">A Magia do Cinema <span class="accent">em Destaque</span></h1>
+            <p class="hero-subtitle">Descubra os maiores sucessos que marcaram gerações e as estreias mais esperadas do ano.</p>
+            <a href="#estreias" class="btn-primary">Ver Estreias</a>
+        </div>
+    </section>
+
+    <!-- Seção de Estreias -->
+    <section class="estreias" id="estreias">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Filmes em <span class="accent">Estreia</span></h2>
+                <p class="section-subtitle">Confira os destaques que você não pode perder</p>
+                <div class="counter-box">
+                    <span id="movie-counter">0</span>
+                    <span class="counter-label">filmes em cartaz</span>
+                </div>
+            </div>
+
+            <div class="cards-grid" id="cards-grid">
+                <!-- Card 1: Homem-Aranha -->
+                <a href="filmes/homem-aranha.html" target="_blank" class="card" data-titulo="Homem-Aranha">
+                    <div class="card-poster">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=o51l160iZkFgvXfwm%2F8wyRxriHc%2B7CVlzwjPBdZV5Ghs7ccMLzcfYpWlyxEzbQY9V172nn2Dkr7r9XwVAzWb7m%2BJMxYVL7EGUbs9MaGTXuIYt%2BeMknPypQ%3D%3D&u2=bJJ6Ib7OmxBPgzWM&width=2560" alt="Pôster do filme Homem-Aranha" loading="lazy">
+                        <div class="card-overlay">
+                            <span class="card-icon">▶</span>
+                            <span class="card-cta">Ver Detalhes</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Homem-Aranha</h3>
+                        <p class="card-date">🎬 Estreia: 24 de Abril de 2026</p>
+                        <span class="card-genre">Ação • Aventura</span>
+                    </div>
+                </a>
+
+                <!-- Card 2: Avatar -->
+                <a href="filmes/avatar.html" target="_blank" class="card" data-titulo="Avatar">
+                    <div class="card-poster">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=4bK9NqgMqA9g0DvNp%2BkbWp4w0KbnITCbTbLjnpP0i8qTPfxfFNEpxXCGwgqnDYwpM6Q8R4eeCDoaopbp9Tkg8UAmu0fSNGUXI3nHB8gbrL7jcijXUbW3aQ%3D%3D&u2=NkdXjdWQpOxeuMJa&width=2560" alt="Pôster do filme Avatar" loading="lazy">
+                        <div class="card-overlay">
+                            <span class="card-icon">▶</span>
+                            <span class="card-cta">Ver Detalhes</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Avatar</h3>
+                        <p class="card-date">🎬 Estreia: 15 de Maio de 2026</p>
+                        <span class="card-genre">Ficção Científica • Aventura</span>
+                    </div>
+                </a>
+
+                <!-- Card 3: De Volta para o Futuro -->
+                <a href="filmes/de-volta-para-o-futuro.html" target="_blank" class="card" data-titulo="De Volta para o Futuro">
+                    <div class="card-poster">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=BGyUqVD17YDCeHA5eR%2F%2FkVnkk1PYlySx0QIn30r7JSFgn3UXtRg5JA1g69MDZy3hbWehLLBk7DI8v1iQpN3y9u0a3g%3D%3D&u2=iRIv%2Bw9rzn5OVg13&width=2560" alt="Pôster do filme De Volta para o Futuro" loading="lazy">
+                        <div class="card-overlay">
+                            <span class="card-icon">▶</span>
+                            <span class="card-cta">Ver Detalhes</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">De Volta para o Futuro</h3>
+                        <p class="card-date">🎬 Reestreia: 05 de Junho de 2026</p>
+                        <span class="card-genre">Ficção Científica • Comédia</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Mensagem em breve -->
+            <div class="em-breve">
+                <div class="em-breve-divider"></div>
+                <h3 class="em-breve-title">✨ Em breve novos filmes ✨</h3>
+                <p class="em-breve-text">Fique ligado nas próximas estreias que prometem emocionar!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Final / Frase de Encerramento -->
+    <section class="final-quote">
+        <div class="container">
+            <blockquote class="quote">
+                "O cinema é a arte mais poderosa para contar histórias que atravessam o tempo.<br>
+                <span class="quote-highlight">Aqui, cada sessão é uma nova jornada.</span>"
+            </blockquote>
+            <p class="quote-author">— CineEstreia, onde a sétima arte vive para sempre 🎞️</p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h4 class="footer-logo">🎬 CineEstreia</h4>
+                <p>Sua vitrine para os maiores sucessos do cinema mundial.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#estreias">Em Estreia</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CineEstreia. Todos os direitos reservados. Feito com 🎬 e paixão pelo cinema.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

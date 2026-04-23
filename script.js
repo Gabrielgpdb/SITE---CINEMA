@@ -1,269 +1,182 @@
-/* =============================================
-   CINEESTREIA — script.js
-   ============================================= */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — CineEstreia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-contato">
 
-/* ── Loader ── */
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  if (!loader) return;
-  setTimeout(() => loader.classList.add('hidden'), 800);
-});
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="film-strip">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="loader-text">Carregando<span class="dots">...</span></p>
+    </div>
+  </div>
 
-/* ── Header scroll effect ── */
-const header = document.getElementById('header');
-if (header) {
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-}
+  <!-- Header -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🎬</span>
+        <span class="logo-text">Cine<strong>Estreia</strong></span>
+      </a>
 
-/* ── Mobile menu toggle ── */
-const menuToggle = document.getElementById('menuToggle');
-const mobileNav  = document.getElementById('mobileNav');
-if (menuToggle && mobileNav) {
-  menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-  });
-  // Close on nav link click
-  mobileNav.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('open');
-      mobileNav.classList.remove('open');
-    });
-  });
-}
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="index.html#estreias" class="nav-link">Em Estreia</a>
+        <a href="index.html#filmes" class="nav-link">Filmes</a>
+        <a href="contato.html" class="nav-link active">Contato</a>
+      </nav>
 
-/* ── Animated counter ── */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target, 10);
-  const duration = 1400;
-  const step = duration / target;
-  let current = 0;
+      <button class="btn-login">Login</button>
 
-  const timer = setInterval(() => {
-    current++;
-    el.textContent = current;
-    if (current >= target) {
-      clearInterval(timer);
-      el.textContent = target;
-    }
-  }, step);
-}
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
-// Observe counter section
-const counterBar = document.querySelector('.counter-bar');
-if (counterBar) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        document.querySelectorAll('.counter-num').forEach(animateCounter);
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-  observer.observe(counterBar);
-}
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html" class="nav-link">Início</a>
+      <a href="index.html#estreias" class="nav-link">Em Estreia</a>
+      <a href="index.html#filmes" class="nav-link">Filmes</a>
+      <a href="contato.html" class="nav-link">Contato</a>
+    </div>
+  </header>
 
-/* ── Scroll reveal ── */
-document.querySelectorAll('.movie-card, .contact-info, .contact-form-wrapper').forEach(el => {
-  el.classList.add('reveal');
-});
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <div class="hero-bg">
+      <div class="hero-grain"></div>
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="contact-hero-content">
+      <p class="hero-label">📬 Fale Conosco</p>
+      <h1 class="hero-title">Entre em <em>contato</em></h1>
+      <p class="hero-sub">Dúvidas, sugestões ou parcerias? Estamos aqui.</p>
+    </div>
+  </section>
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-wrapper">
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      <!-- Info Side -->
+      <div class="contact-info">
+        <h2>Adoramos<br />ouvir você.</h2>
+        <p>Se você tem sugestões de filmes, dúvidas sobre sessões ou quer saber mais sobre o CineEstreia, nos mande uma mensagem!</p>
 
-/* ── Modal system ── */
-const overlay   = document.getElementById('modalOverlay');
-const allModals = document.querySelectorAll('.modal');
+        <div class="info-items">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Endereço</strong>
+              <p>Rua do Cinema, 2026<br />São Paulo – SP</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📧</span>
+            <div>
+              <strong>E-mail</strong>
+              <p>contato@cineestreia.com.br</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div>
+              <strong>Telefone</strong>
+              <p>(11) 9 9999-2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-function openModal(id) {
-  if (!overlay) return;
-  // Close any open first
-  allModals.forEach(m => m.classList.remove('active'));
-  const target = document.getElementById('modal-' + id);
-  if (!target) return;
-  overlay.classList.add('active');
-  target.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+      <!-- Form Side -->
+      <div class="contact-form-wrapper">
+        <div class="form-header">
+          <h3>Envie sua mensagem</h3>
+          <p>Respondemos em até 24 horas.</p>
+        </div>
 
-function closeAllModals() {
-  if (!overlay) return;
-  overlay.classList.remove('active');
-  allModals.forEach(m => m.classList.remove('active'));
-  document.body.style.overflow = '';
-}
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome completo"
+              required
+              autocomplete="name"
+            />
+            <span class="form-error" id="nome-error">Por favor, insira seu nome.</span>
+          </div>
 
-// Card clicks
-document.querySelectorAll('.movie-card').forEach(card => {
-  card.addEventListener('click', () => {
-    openModal(card.dataset.modal);
-  });
-  // Keyboard accessibility
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openModal(card.dataset.modal);
-    }
-  });
-});
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+              autocomplete="email"
+            />
+            <span class="form-error" id="email-error">Por favor, insira um e-mail válido.</span>
+          </div>
 
-// Close buttons
-document.querySelectorAll('.modal-close').forEach(btn => {
-  btn.addEventListener('click', closeAllModals);
-});
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              placeholder="Escreva sua mensagem aqui..."
+              rows="6"
+              required
+            ></textarea>
+            <span class="form-error" id="mensagem-error">Por favor, escreva uma mensagem.</span>
+          </div>
 
-// Click outside modal
-if (overlay) {
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) closeAllModals();
-  });
-}
+          <button type="submit" class="btn-enviar" id="btnEnviar">
+            <span class="btn-text">Enviar Mensagem</span>
+            <span class="btn-icon">✉️</span>
+          </button>
+        </form>
 
-// Escape key
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeAllModals();
-});
+        <!-- Success Message -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">🎉</div>
+          <h3>Mensagem enviada!</h3>
+          <p>Obrigado pelo contato. Retornaremos em breve!</p>
+          <button class="btn-nova" id="btnNova">Enviar nova mensagem</button>
+        </div>
+      </div>
 
-/* ── Contact Form Validation & Success ── */
-const form       = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-const btnNova    = document.getElementById('btnNova');
+    </div>
+  </section>
 
-if (form) {
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let valid = true;
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🎬</span>
+        <span class="logo-text">Cine<strong>Estreia</strong></span>
+      </a>
+      <p class="footer-copy">© 2026 CineEstreia. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="contato.html">Contato</a>
+        <a href="#">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
 
-    // Nome
-    const nome = document.getElementById('nome');
-    const nomeGroup = nome?.closest('.form-group');
-    if (!nome?.value.trim() || nome.value.trim().length < 2) {
-      nomeGroup?.classList.add('error');
-      valid = false;
-    } else {
-      nomeGroup?.classList.remove('error');
-    }
-
-    // Email
-    const email = document.getElementById('email');
-    const emailGroup = email?.closest('.form-group');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email?.value.trim() || !emailRegex.test(email.value.trim())) {
-      emailGroup?.classList.add('error');
-      valid = false;
-    } else {
-      emailGroup?.classList.remove('error');
-    }
-
-    // Mensagem
-    const msg = document.getElementById('mensagem');
-    const msgGroup = msg?.closest('.form-group');
-    if (!msg?.value.trim() || msg.value.trim().length < 10) {
-      msgGroup?.classList.add('error');
-      valid = false;
-    } else {
-      msgGroup?.classList.remove('error');
-    }
-
-    if (valid) {
-      // Show success with animation
-      form.style.display = 'none';
-      formSuccess?.classList.add('show');
-    } else {
-      // Shake the button
-      const btn = document.getElementById('btnEnviar');
-      if (btn) {
-        btn.style.animation = 'shake 0.4s ease';
-        btn.addEventListener('animationend', () => {
-          btn.style.animation = '';
-        }, { once: true });
-      }
-    }
-  });
-
-  // Live validation on blur
-  ['nome', 'email', 'mensagem'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.addEventListener('blur', () => {
-      const group = el.closest('.form-group');
-      if (el.value.trim()) group?.classList.remove('error');
-    });
-    el.addEventListener('input', () => {
-      const group = el.closest('.form-group');
-      if (group?.classList.contains('error') && el.value.trim()) {
-        group.classList.remove('error');
-      }
-    });
-  });
-}
-
-// Reset form
-if (btnNova) {
-  btnNova.addEventListener('click', () => {
-    if (form) {
-      form.reset();
-      form.style.display = 'flex';
-    }
-    formSuccess?.classList.remove('show');
-  });
-}
-
-// Inject shake keyframe dynamically
-const shakeStyle = document.createElement('style');
-shakeStyle.textContent = `
-@keyframes shake {
-  0%,100% { transform: translateX(0); }
-  20%      { transform: translateX(-6px); }
-  40%      { transform: translateX(6px); }
-  60%      { transform: translateX(-4px); }
-  80%      { transform: translateX(4px); }
-}`;
-document.head.appendChild(shakeStyle);
-
-/* ── Smooth scroll for anchor links ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    const targetId = anchor.getAttribute('href').slice(1);
-    const target   = document.getElementById(targetId);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-/* ── Card magnetic cursor tilt effect ── */
-document.querySelectorAll('.movie-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect   = card.getBoundingClientRect();
-    const x      = e.clientX - rect.left;
-    const y      = e.clientY - rect.top;
-    const cx     = rect.width  / 2;
-    const cy     = rect.height / 2;
-    const dx     = (x - cx) / cx;
-    const dy     = (y - cy) / cy;
-    const rotX   = -dy * 6;
-    const rotY   =  dx * 6;
-    card.style.transform = `translateY(-10px) scale(1.02) perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease, border-color 0.3s ease';
-  });
-
-  card.addEventListener('mouseenter', () => {
-    card.style.transition = 'transform 0.1s ease, box-shadow 0.4s ease, border-color 0.3s ease';
-  });
-});
+  <script src="script.js"></script>
+</body>
+</html>
